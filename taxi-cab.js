@@ -43,18 +43,9 @@ const getDirection = (direction) => (direction === "x" ? "east" : "north");
 // Set the current direction of the arrow
 const setArrow = (arrow, turn) => {
   arrow += turn === "right" ? 1 : -1;
-
-  // If arrow is over 3, loop back to 0
-  if (arrow > 3) {
-    arrow = 0;
-  }
-
-  // If arrow is under 3, loop back to 3
-  if (arrow < 0) {
-    arrow = 3;
-  }
-
-  return arrow;
+  
+  //Shortened if statement, for catching loops
+  return arrow > 3 ? 0 : arrow < 0 ? 3 : arrow
 };
 
 const calculateBlocks = (acc, { turn, move }, i, arr) => {
